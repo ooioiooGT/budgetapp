@@ -13,8 +13,8 @@ const Login = () => {
 
   return (
     <KeyboardAvoidingView style={styles.container} behavior='padding'>
+        <Text style ={styles.name}>Cashflow</Text>
         <View style={styles.inputcontainer}>
-            <Text style ={styles.name}>Cashflow</Text>
             <TextInput placeholder="Email" style={styles.input} onChangeText={setEamil}></TextInput>
             <TextInput placeholder='Password' secureTextEntry style={styles.input} onChangeText={setPassword}></TextInput>
         </View>
@@ -38,11 +38,12 @@ const styles = StyleSheet.create({
     },  
     container:{
         flex: 1,
+        width:'100%',
         alignItems:'center',
         justifyContent:'center',
     },
     inputcontainer:{
-        width:'40%',
+        width:'50%',
         alignItems:'center',
     },
     input:{
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     },
     buttoncontainer:{
         flexDirection:'row',
-        width:'40%',
+        width:'50%',
         justifyContent: 'space-between',
         alignItems:'center',
         marginTop: 40,
@@ -66,6 +67,7 @@ const styles = StyleSheet.create({
         padding:15,
         borderRadius:10,
         alignItems:'center',
+
     }
 
     
