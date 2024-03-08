@@ -1,6 +1,7 @@
 
 import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup , GoogleAuthProvider, signInWithRedirect} from "firebase/auth";
+import { signOut } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDecGMFOsezi_vDNtv0k-ucQUYgWibWfBs",
@@ -40,8 +41,18 @@ export const googlesignin = async () => {
     const provider = await GoogleAuthProvider();
     try {
         await signInWithRedirect(FIREBASE_auth, provider);
-        alert('success Signup')
+        alert('success Signin')
     } catch (error) {
         alert('Failed: ' + error.message);
     }
 }
+
+export const handleSignOut = async () => {
+    try {
+      await signOut(FIREBASE_auth);
+      console.log('User signed out successfully');
+      // Here you can navigate the user back to the login screen or perform other actions
+    } catch (error) {
+      console.error('Error signing out: ', error);
+    }
+  };
