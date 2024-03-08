@@ -1,11 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View,TextInput } from 'react-native'
+import React, { useState } from 'react'
 import Navbar from '../Components/Navbar'
+import DropDownPicker from 'react-native-dropdown-picker'
+import { category } from '../Components/Data'
+
 
 const Transaction = () => {
+ const [amount, setAmount] = useState('');
+
   return (
     <View style={styles.container}>
       <Text>Transaction</Text>
+      <DropDownPicker 
+      
+      items={category} 
+      placeholder='Select a Category'
+      >
+
+      </DropDownPicker>
+      <TextInput placeholder='Amount' onChangeText={setAmount}></TextInput>
       <Navbar />
     </View>
     
