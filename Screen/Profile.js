@@ -2,23 +2,22 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Navbar from '../Components/Navbar'
 
-const Home = () => {
+const Profile = () => {
   return (
     <View style={styles.container}>
-      
-      <Text>Home</Text>
+      <Text>Profile</Text>
       <Navbar />
     </View>
   )
 }
 
-export default Home
+export default Profile
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    width:'100%',
-    alignItems:'center',
-    justifyContent:'center',
-},
+    container:{
+        flex:1,
+        width:'100%',
+        alignItems:'center',
+        justifyContent:'center',
+    },
 })

@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup , GoogleAuthProvider} from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup , GoogleAuthProvider, signInWithRedirect} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDecGMFOsezi_vDNtv0k-ucQUYgWibWfBs",
@@ -39,7 +39,8 @@ export const handelsignup = async(email, password) =>{
 export const googlesignin = async () => {
     const provider = await GoogleAuthProvider();
     try {
-        signInWithPopup(FIREBASE_auth, provider);
+        await signInWithRedirect(FIREBASE_auth, provider);
+        alert('success Signup')
     } catch (error) {
         alert('Failed: ' + error.message);
     }

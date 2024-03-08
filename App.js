@@ -9,6 +9,10 @@ import { FIREBASE_auth } from './Firebase';
 import { onAuthStateChanged } from "firebase/auth";
 import Home from './Screen/Home';
 import Login from './Screen/Login';
+import Transaction from './Screen/Transaction';
+import Goal from './Screen/Goal';
+import Graph from './Screen/Graph';
+import Profile from './Screen/Profile';
 
 
 
@@ -32,6 +36,10 @@ export default function App() {
         {user ?(
           <>
           <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
+          <Stack.Screen name="Transaction" component={Transaction} options={{headerShown: false}}/>
+          <Stack.Screen name="Goal" component={Goal} options={{headerShown: false}}/>
+          <Stack.Screen name="Graph" component={Graph} options={{headerShown: false}}/>
+          <Stack.Screen name="Profile" component={Profile} options={{headerShown: false}}/>
           </>
         ):(
           <>

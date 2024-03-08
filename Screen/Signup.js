@@ -33,7 +33,7 @@ const Signup = () => {
             <TouchableOpacity style={styles.button} onPress={() => checkPassword(email, password, conPassword)}>
                 <Text >Signup</Text>
             </TouchableOpacity>
-            <Text>-----------------------------------------------------------------------------------</Text>
+            <Text style={{margin:15}}>-----------------------   or   -----------------------</Text>
         </View>
         <View style={styles.icon}>
             <TouchableOpacity onPress={() => googlesignin()}>
