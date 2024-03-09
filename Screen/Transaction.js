@@ -7,13 +7,20 @@ import { category } from '../Components/Data'
 
 const Transaction = () => {
  const [amount, setAmount] = useState('');
+ const [open, setOpen] = useState(false);
+ const [value, setValue] = useState(null);
+ const [items, setItems] = useState(category);
 
   return (
     <View style={styles.container}>
       <Text>Transaction</Text>
       <DropDownPicker 
-      
-      items={category} 
+      open={open}
+      value={value}
+      items={items}
+      setOpen={setOpen}
+      setValue={setValue}
+      setItems={setItems} 
       placeholder='Select a Category'
       >
 
