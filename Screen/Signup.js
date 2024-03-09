@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,KeyboardAvoidingView,TextInput,TouchableOpacity, Image} from 'react-native'
+import { StyleSheet, Text, View,KeyboardAvoidingView,TextInput,TouchableOpacity, Image, ScrollView} from 'react-native'
 import React ,{useState}from 'react'
 import { googlesignin, handelsignup } from '../Firebase';
 
@@ -57,7 +57,7 @@ container:{
     justifyContent:'center',
 },
 inputcontainer:{
-    width:'40%',
+    width:'50%',
     alignItems:'center',
 },
 input:{
