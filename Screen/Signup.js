@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View,KeyboardAvoidingView,TextInput,TouchableOpacity, Image, ScrollView} from 'react-native'
 import React ,{useState}from 'react'
-import { googlesignin, handelsignup } from '../Firebase';
+import { adddata, googlesignin, handelsignup } from '../Firebase';
 
 
 const Signup = () => {

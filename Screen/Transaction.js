@@ -4,7 +4,6 @@ import Navbar from '../Components/Navbar';
 import DropDownPicker from 'react-native-dropdown-picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { category } from '../Components/Data';
-import { TouchableOpacity } from 'react-native-web';
 
 
 const Transaction = () => {
@@ -38,6 +37,7 @@ const handleConfirmDate = () => {
 
 return (
   <View style={styles.container}>
+    <Text>Transaction</Text>
     <View>
       {showPicker && (
         <DateTimePicker
@@ -63,8 +63,8 @@ return (
           <Button title="Confirm Date" onPress={handleConfirmDate} />
         </View>
       )}
-    </View>
-    <Text>Transaction</Text>
+    </View >
+    <View style={styles.drop}>
     <DropDownPicker
       open={open}
       value={value}
@@ -74,11 +74,14 @@ return (
       setItems={setItems}
       placeholder="Select a Category"
     />
+    </View>
+    <View style={styles.amount}>
     <TextInput
       placeholder="Amount"
       onChangeText={setAmount}
       keyboardType="numeric"
     />
+    </View>
     <Navbar />
   </View>
  );
@@ -93,5 +96,17 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
     },
+    drop:{
+      width:'30%'
+    },
+    amount:{
+      width:'30%',
+      borderColor:'black',
+      borderWidth:1,
+      backgroundColor:'white',
+      borderRadius:10,
+      padding:15,
+      margin:2,
+    }
 
 })

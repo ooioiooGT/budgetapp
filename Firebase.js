@@ -1,7 +1,8 @@
 
 import { initializeApp } from "firebase/app";
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup , GoogleAuthProvider, signInWithRedirect} from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword , GoogleAuthProvider, signInWithRedirect} from "firebase/auth";
 import { signOut } from "firebase/auth";
+import { getFirestore, doc , setDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDecGMFOsezi_vDNtv0k-ucQUYgWibWfBs",
@@ -15,11 +16,15 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const FIREBASE_auth = getAuth(app);
+export const FIREBASE_db = getFirestore(app);
+
+export let userid;
 
 export const handellogin = async(email, password)=> { 
     try{
-        console.log(email , password);
         await signInWithEmailAndPassword(FIREBASE_auth, email , password)
+        userid = await FIREBASE_auth.currentUser.uid;
+        console.log(userid);
         alert ('Login sucess! ')
         
     }catch(error){
@@ -30,6 +35,8 @@ export const handellogin = async(email, password)=> {
 export const handelsignup = async(email, password) =>{
     try {
         await createUserWithEmailAndPassword(FIREBASE_auth, email, password)
+        userid =  await FIREBASE_auth.currentUser.uid;
+        console.log(userid);
         alert('Register sucess! ')
     }catch(error){
         ('Faild:' + error)
@@ -56,3 +63,14 @@ export const handleSignOut = async () => {
       console.error('Error signing out: ', error);
     }
   };
+
+
+// export const userid = FIREBASE_auth.currentUser.uid
+
+
+export const adddata = async ( fName , lName) =>{
+    await setDoc(doc(FIREBASE_db,'user',userid)),{
+        fname: fName,
+        lname: lName,
+    }
+}
