@@ -38,7 +38,7 @@ const handleConfirmDate = () => {
 return (
   <View style={styles.container}>
     <Text>Transaction</Text>
-    <View>
+  <View style={styles.amount}>
       {showPicker && (
         <DateTimePicker
           mode="date"

@@ -32,10 +32,15 @@ export const handellogin = async(email, password)=> {
     }
 }
 
-export const handelsignup = async(email, password) =>{
+export const handelsignup = async(email, password, fName, lName) =>{
     try {
         await createUserWithEmailAndPassword(FIREBASE_auth, email, password)
         userid =  await FIREBASE_auth.currentUser.uid;
+        await setDoc(doc(FIREBASE_db,'users',userid),{
+            fname: fName,
+            lname: lName,
+        });
+       
         console.log(userid);
         alert('Register sucess! ')
     }catch(error){
@@ -63,14 +68,3 @@ export const handleSignOut = async () => {
       console.error('Error signing out: ', error);
     }
   };
-
-
-// export const userid = FIREBASE_auth.currentUser.uid
-
-
-export const adddata = async ( fName , lName) =>{
-    await setDoc(doc(FIREBASE_db,'user',userid)),{
-        fname: fName,
-        lname: lName,
-    }
-}

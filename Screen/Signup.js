@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View,KeyboardAvoidingView,TextInput,TouchableOpacity, Image, ScrollView} from 'react-native'
 import React ,{useState}from 'react'
-import { adddata, googlesignin, handelsignup } from '../Firebase';
+import { adddata, addinformation, googlesignin, handelsignup } from '../Firebase';
 
 
 const Signup = () => {
@@ -13,7 +13,7 @@ const Signup = () => {
 
     const checkPassword = (email, password, conPassword) => {
         if (password == conPassword) {
-          handelsignup(email, password);
+          handelsignup(email, password, fName, lName);
         } else {
           console.log(password, conPassword);
           alert('Passwords do not match');
